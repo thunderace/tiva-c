@@ -66,12 +66,17 @@ ifeq (${COMPILER}, gcc)
 # Get the prefix for the tools to use.  Use arm-stellaris-eabi if it exists,
 # otherwise fall back to arm-none-eabi.
 #
+ifndef ENERGIA_ROOT
 PREFIX:=${shell type arm-stellaris-eabi-gcc > /dev/null 2>&1 && \
          echo arm-stellaris-eabi || echo arm-none-eabi}
+else
+PREFIX:=${ENERGIA_ROOT}/hardware/tools/lm4f/bin/arm-none-eabi
+endif
 
 #
 # The command for calling the compiler.
 #
+
 CC=${PREFIX}-gcc
 
 #
@@ -79,7 +84,11 @@ CC=${PREFIX}-gcc
 # ARMGCC_ROOT is used by some makefiles that need to know where the compiler
 # is installed.
 #
+ifndef ENERGIA_ROOT
 ARMGCC_ROOT:=${shell dirname '${shell sh -c "which ${CC}"}'}/..
+else
+ARMGCC_ROOT:=${ENERIGA_ROOT}/hardware/tools/lm4f
+endif
 
 #
 # Set the compiler CPU/FPU options.
@@ -160,6 +169,10 @@ endif
 # Add the tool specific CFLAGS.
 #
 CFLAGS+=${CFLAGSgcc}
+
+ifdef ENERIGA_ROOT
+CFLAGS+=-I${ENERGIA_ROOT}/hardware/lm4f/cores/lm4f
+endif
 
 #
 # Add the include file paths to AFLAGS and CFLAGS.

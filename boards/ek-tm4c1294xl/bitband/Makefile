@@ -30,7 +30,7 @@ PART=TM4C1294NCPDT
 #
 # The base directory for TivaWare.
 #
-ROOT=../../../..
+ROOT=../../..
 
 #
 # Include the common make definitions.

@@ -13,7 +13,7 @@ Tested on Mac OS X 10.6.8, should work on most Macs and Linuxes.
 
 ## Usage
 
-If use have the [energia enviroment](http://energia.nu/download/):
+If you have the [energia enviroment](http://energia.nu/download/):
 
 ```bash
 $ export ENERGIA_ROOT=/path/to/energia

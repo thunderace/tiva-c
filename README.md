@@ -18,7 +18,8 @@ If you have the [energia enviroment](http://energia.nu/download/):
 ```bash
 $ export ENERGIA_ROOT=/path/to/energia
 $ cd boards/ek-tm4c123gxl/blinky
-$ $ENERGIA_ROOT/hardware/tools/lm4f/bin/lm4flash
+$ make
+$ $ENERGIA_ROOT/hardware/tools/lm4f/bin/lm4flash gcc/blinky.bin
 ```
 
 Assuming you're using the Tiva C Connected Launchpad dev board (`ek-tm4c1294xl`):

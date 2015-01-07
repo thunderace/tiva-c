@@ -40,13 +40,13 @@ include ${ROOT}/makedefs
 #
 # Where to find source files that do not live in this directory.
 #
-VPATH=../../../../utils
+VPATH=${ROOT}/utils
 
 #
 # Where to find header files that do not live in the source directory.
 #
 IPATH=..
-IPATH+=../../../..
+IPATH+=${ROOT}
 
 #
 # The default rule, which causes the bitband example to be built.

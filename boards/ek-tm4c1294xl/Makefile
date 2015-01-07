@@ -25,6 +25,7 @@
 #
 # A list of the directories containing the examples.
 #
+
 DIRS=bitband           \
      blinky            \
      enet_io           \
@@ -55,17 +56,23 @@ DIRS=bitband           \
 # The default rule, which causes the examples to be built.
 #
 all:
-	@for i in ${DIRS};              \
-	 do                             \
-	     make -C $${i} || exit $$?; \
-	 done
+	@-for i in ${DIRS};                 \
+		do                                \
+			if [ -f $${i}/Makefile ];       \
+			then                            \
+				make -C $${i} || exit $$?;    \
+			fi;                             \
+		done
 
 #
 # The rule to clean out all the build products.
 #
 clean:
 	@rm -rf ${wildcard *~} __dummy__
-	@-for i in ${DIRS};        \
-	  do                       \
-	      make -C $${i} clean; \
-	  done
+	@-for i in ${DIRS};                 \
+ 		do                                \
+			if [ -f $${i}/Makefile ];       \
+			then                            \
+				make -C $${i} clean;          \
+			fi;  				\
+		done

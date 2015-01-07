@@ -30,7 +30,7 @@ PART=TM4C1294NCPDT
 #
 # The base directory for TivaWare.
 #
-ROOT=../../../..
+ROOT=../../..
 
 #
 # Include the common make definitions.
@@ -41,16 +41,16 @@ include ${ROOT}/makedefs
 # Where to find source files that do not live in this directory.
 #
 VPATH=../drivers
-VPATH+=../../../../third_party/fatfs/port
-VPATH+=../../../../third_party/fatfs/src
-VPATH+=../../../../utils
+VPATH+=${ROOT}/third_party/fatfs/port
+VPATH+=${ROOT}/third_party/fatfs/src
+VPATH+=${ROOT}/utils
 
 #
 # Where to find header files that do not live in the source directory.
 #
 IPATH=..
-IPATH+=../../../..
-IPATH+=../../../../third_party
+IPATH+=${ROOT}
+IPATH+=${ROOT}/third_party
 
 #
 # The default rule, which causes the USB host mass storage example to be built.
